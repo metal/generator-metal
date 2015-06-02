@@ -1,12 +1,8 @@
 {
-  "name": "aui-boilerplate",
-  "version": "0.1.0",
-  "homepage": "https://github.com/alloyui/boilerplate",
-  "authors": [
-    "Maira Bello <maira.araujo@liferay.com>"
-  ],
-  "description": "Boilerplate for AlloyUI components",
-  "main": "src/Boilerplate.js",
+  "name": "<%= repoName %>",
+  "version": "0.0.0",
+  "description": "<%= repoDescription %>",
+  "main": "src/<%= capitalizeName %>.js",
   "moduleType": [
     "es6"
   ],
@@ -19,7 +15,6 @@
     "*",
     "!src/**/*"
   ],
-  "license": "MIT",
   "dependencies": {
     "metaljs": "liferay/metal.js#master",
     "soyutils": "~2012.12.21",

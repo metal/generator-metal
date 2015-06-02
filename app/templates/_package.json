@@ -1,13 +1,9 @@
 {
-  "name": "aui-boilerplate",
-  "version": "0.1.0",
-  "description": "Boilerplate for AlloyUI components",
+  "name": "<%= repoName %>",
+  "version": "0.0.0",
+  "description": "<%= repoDescription %>",
   "license": "MIT",
-  "repository": "alloyui/boilerplate",
-  "author": {
-    "name": "Maira Bello",
-    "email": "maira.araujo@liferay.com"
-  },
+  "repository": "<%= repoOwner %>/<%= repoName %>",
   "engines": {
     "node": ">=0.12.0"
   },

@@ -1,8 +1,8 @@
 'use strict';
 
-import Boilerplate from '../src/Boilerplate';
+import <%= capitalizeName %> from '../src/<%= capitalizeName %>';
 
-describe('Boilerplate', function() {
+describe('<%= capitalizeName %>', function() {
   it('should be tested', function() {
     assert.fail('No tests for this module yet.');
   });

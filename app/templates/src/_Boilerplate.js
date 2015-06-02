@@ -2,13 +2,14 @@
 
 import Component from 'bower:aui-component/src/Component';
 import ComponentRegistry from 'bower:metaljs/src/component/ComponentRegistry';
+import './<%= capitalizeName %>.soy';
 
-class Boilerplate extends Component {
+class <%= capitalizeName %> extends Component {
   constructor(opt_config) {
     super(opt_config);
   }
 }
 
-ComponentRegistry.register('Boilerplate', Boilerplate);
+ComponentRegistry.register('<%= capitalizeName %>', <%= capitalizeName %>);
 
-export default Boilerplate;
+export default <%= capitalizeName %>;

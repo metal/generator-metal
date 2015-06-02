@@ -7,19 +7,24 @@ var os = require('os');
 
 describe('aui:app', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
+    helpers.run(path.join(__dirname, '../app'))
       .withOptions({ skipInstall: true })
-      .withPrompts({ someOption: true })
+      .withPrompts({
+        componentName: 'MyComponent',
+        repoName: 'my-repo',
+        repoOwner: 'my-user',
+        repoDescription: 'My awesome Metal project'
+      })
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
       'demo/index.html',
-      'src/Boilerplate.js',
-      'src/Boilerplate.scss',
-      'src/Boilerplate.soy',
-      'test/Boilerplate.js',
+      'src/MyComponent.js',
+      'src/MyComponent.scss',
+      'src/MyComponent.soy',
+      'test/MyComponent.js',
       'test/.jshintrc',
       'bower.json',
       'gulpfile.js',

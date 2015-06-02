@@ -3,5 +3,6 @@
 var auiTasks = require('aui-tasks');
 
 auiTasks({
-  bundleFileName: 'boilerplate.js'
+  bundleFileName: '<%= lowercaseName %>.js',
+  globalName: 'aui'
 });
