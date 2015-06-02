@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Demo: <%= capitalizeName %></title>
+	<meta charset="UTF-8">
+	<title>Demo: <%= capitalizeName %></title>
 
-  <link rel="stylesheet" href="../build/bootstrap.css">
-  <link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
+	<link rel="stylesheet" href="../build/bootstrap.css">
+	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
 
-  <script src="../bower_components/soyutils/soyutils.js"></script>
-  <script src="../build/globals/<%= lowercaseName %>.js"></script>
+	<script src="../bower_components/soyutils/soyutils.js"></script>
+	<script src="../build/globals/<%= lowercaseName %>.js"></script>
 </head>
 <body>
-  <h1><%= capitalizeName %></h1>
-  <script type="text/javascript">
-    new aui.<%= capitalizeName %>().render();
-  </script>
+	<h1><%= capitalizeName %></h1>
+	<script type="text/javascript">
+		new aui.<%= capitalizeName %>().render();
+	</script>
 </body>
 </html>

@@ -1,24 +1,24 @@
 {
-  "name": "<%= repoName %>",
-  "version": "0.0.0",
-  "description": "<%= repoDescription %>",
-  "main": "src/<%= capitalizeName %>.js",
-  "moduleType": [
-    "es6"
-  ],
-  "keywords": [
-    "aui",
-    "alloyui",
-    "metaljs"
-  ],
-  "ignore": [
-    "*",
-    "!src/**/*"
-  ],
-  "dependencies": {
-    "metaljs": "liferay/metal.js#master",
-    "soyutils": "2014.04.22",
-    "aui-component": "alloyui/component",
-    "bootstrap-sass": "~3.3.4"
-  }
+	"name": "<%= repoName %>",
+	"version": "0.0.0",
+	"description": "<%= repoDescription %>",
+	"main": "src/<%= capitalizeName %>.js",
+	"moduleType": [
+		"es6"
+	],
+	"keywords": [
+		"aui",
+		"alloyui",
+		"metaljs"
+	],
+	"ignore": [
+		"*",
+		"!src/**/*"
+	],
+	"dependencies": {
+		"metaljs": "liferay/metal.js#master",
+		"soyutils": "2014.04.22",
+		"aui-component": "alloyui/component",
+		"bootstrap-sass": "~3.3.4"
+	}
 }
