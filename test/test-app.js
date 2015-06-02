@@ -15,9 +15,19 @@ describe('aui:app', function () {
 
   it('creates files', function () {
     assert.file([
+      'demo/index.html',
+      'src/Boilerplate.js',
+      'src/Boilerplate.scss',
+      'src/Boilerplate.soy',
+      'test/Boilerplate.js',
+      'test/.jshintrc',
       'bower.json',
+      'gulpfile.js',
+      'karma.conf.js',
       'package.json',
+      'README.md',
       '.editorconfig',
+      '.gitignore',
       '.jshintrc'
     ]);
   });
