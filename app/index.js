@@ -120,7 +120,8 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
 			{
-				lowercaseName: this.lowercaseName
+				lowercaseName: this.lowercaseName,
+				repoName: this.repoName
 			}
 		);
 		this.fs.copy(
