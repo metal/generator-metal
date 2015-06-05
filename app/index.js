@@ -31,12 +31,12 @@ module.exports = yeoman.generators.Base.extend({
 		},
 		{
 			type: 'input',
-			name: 'repoName',
-			message: 'What\'s the GitHub repository name?',
-			default: 'my-repo',
+			name: 'namespace',
+			message: 'What\'s the metal component namespace?',
+			default: 'alloy',
 			validate: function(input) {
 				if (!input) {
-					return 'You must provide a GitHub repository name.';
+					return 'You must provide the Metal component namespace.';
 				}
 
 				return true;
@@ -66,7 +66,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.capitalizeName = _.capitalize(props.componentName);
 			this.lowercaseName = props.componentName.toLowerCase();
 
-			this.repoName = props.repoName;
+			this.repoName = props.namespace + '-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
 
