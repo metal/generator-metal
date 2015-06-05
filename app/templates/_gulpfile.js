@@ -1,8 +1,8 @@
 'use strict';
 
-var auiTasks = require('aui-tasks');
+var metal = require('gulp-metal');
 
-auiTasks({
+metal.registerTasks({
 	bundleCssFileName: '<%= lowercaseName %>.css',
 	bundleFileName: '<%= lowercaseName %>.js',
 	moduleName: '<%= repoName %>'
