@@ -66,6 +66,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.capitalizeName = _.capitalize(props.componentName);
 			this.lowercaseName = props.componentName.toLowerCase();
 
+			this.namespace = props.namespace;
 			this.repoName = props.namespace + '-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
@@ -113,6 +114,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_bower.json'), this.destinationPath('bower.json'),
 			{
 				capitalizeName: this.capitalizeName,
+				namespace: this.namespace,
 				repoName: this.repoName,
 				repoDescription: this.repoDescription
 			}
@@ -130,6 +132,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
+				namespace: this.namespace,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription

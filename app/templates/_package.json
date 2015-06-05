@@ -11,7 +11,8 @@
 		"test": "gulp test"
 	},
 	"keywords": [
-		"metal"
+		"metal",
+		"<%= namespace %>"
 	],
 	"devDependencies": {
 		"chai": "^2.3.0",
