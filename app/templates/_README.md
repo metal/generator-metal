@@ -1,3 +1,3 @@
-# AlloyUI <%= repoName %>
+# <%= repoName %>
 
 <%= repoDescription %>
