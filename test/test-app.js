@@ -20,7 +20,7 @@ describe('metal:app', function () {
 
 	it('creates files', function () {
 		assert.file([
-			'demo/index.html',
+			'demos/index.html',
 			'src/MyComponent.js',
 			'src/MyComponent.scss',
 			'src/MyComponent.soy',
