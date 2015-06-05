@@ -9,7 +9,7 @@ var yosay  = require('yosay');
 module.exports = yeoman.generators.Base.extend({
 	initializing: function () {
 		this.log(yosay(
-			'Welcome, let\'s generate a ' + chalk.blue('AlloyUI') + ' project!'
+			'Welcome, let\'s generate a ' + chalk.blue('Metal') + ' project!'
 		));
 	},
 

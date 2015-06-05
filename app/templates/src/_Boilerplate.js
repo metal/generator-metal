@@ -1,10 +1,10 @@
 'use strict';
 
-import Component from 'bower:aui-component/src/Component';
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
+import SoyComponent from 'bower:metal/src/soy/SoyComponent';
 import './<%= capitalizeName %>.soy';
 
-class <%= capitalizeName %> extends Component {
+class <%= capitalizeName %> extends SoyComponent {
 	constructor(opt_config) {
 		super(opt_config);
 	}
