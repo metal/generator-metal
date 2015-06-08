@@ -5,5 +5,6 @@ var metal = require('gulp-metal');
 metal.registerTasks({
 	bundleCssFileName: '<%= lowercaseName %>.css',
 	bundleFileName: '<%= lowercaseName %>.js',
+	mainBuildJsTasks: ['<%= buildFormat %>'],
 	moduleName: '<%= repoName %>'
 });

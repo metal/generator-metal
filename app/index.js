@@ -43,6 +43,20 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		},
 		{
+			type: 'list',
+			name: 'buildFormat',
+			message: 'Which build format will this component use?',
+			choices: ['globals', 'jquery', 'amd'],
+			default: 'globals',
+			validate: function(input) {
+				if (!input) {
+					return 'You must provide the Metal component build format.';
+				}
+
+				return true;
+			}
+		},
+		{
 			type: 'input',
 			name: 'repoOwner',
 			message: 'What\'s the GitHub username?',
@@ -70,6 +84,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.repoName = props.namespace + '-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
+			this.buildFormat = props.buildFormat;
 
 			done();
 		}.bind(this));
@@ -122,6 +137,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
 			{
+				buildFormat: this.buildFormat,
 				lowercaseName: this.lowercaseName,
 				repoName: this.repoName
 			}
