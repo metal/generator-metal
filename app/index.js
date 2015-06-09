@@ -78,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
 
 		this.prompt(prompts, function (props) {
 			this.capitalizeName = _.capitalize(props.componentName);
-			this.lowercaseName = props.componentName.toLowerCase();
+			this.lowercaseName = props.componentName[0].toLowerCase() + props.componentName.substr(1);
 
 			this.namespace = props.namespace;
 			this.repoName = props.namespace + '-' + this.lowercaseName;
