@@ -91,11 +91,13 @@ module.exports = yeoman.generators.Base.extend({
 	},
 
 	writing: function () {
+		var demoTemplateName = 'demos/_' + this.buildFormat + '.html';
 		this.fs.copyTpl(
-			this.templatePath('demos/_index.html'), this.destinationPath('demos/index.html'),
+			this.templatePath(demoTemplateName), this.destinationPath('demos/index.html'),
 			{
 				capitalizeName: this.capitalizeName,
-				lowercaseName: this.lowercaseName
+				lowercaseName: this.lowercaseName,
+				repoName: this.repoName
 			}
 		);
 		this.fs.copyTpl(
@@ -128,6 +130,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_bower.json'), this.destinationPath('bower.json'),
 			{
+				buildFormat: this.buildFormat,
 				capitalizeName: this.capitalizeName,
 				namespace: this.namespace,
 				repoName: this.repoName,

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo: <%= capitalizeName %></title>
+
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
+
+	<script src="../bower_components/soyutils/soyutils.js"></script>
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../build/jquery/<%= lowercaseName %>.js"></script>
+</head>
+<body>
+	<h1><%= capitalizeName %></h1>
+	<div id="<%= capitalizeName %>"></div>
+	<script type="text/javascript">
+		$('#<%= capitalizeName %>').<%= lowercaseName %>();
+	</script>
+</body>
+</html>
