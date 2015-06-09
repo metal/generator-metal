@@ -16,8 +16,8 @@
 	],
 	"dependencies": {
 		<% if (buildFormat === 'amd') { %>"requirejs": "~2.1.18",<% } %><% if (buildFormat === 'jquery') { %>"jquery": "~2.1.4",<% } %>
-		"metal": "metal/metal.js#master",
-		"metal-jquery-adapter": "metal/metal-jquery-adapter#master",
+		"metal": "~0.3.1",
+		"metal-jquery-adapter": "~0.0.1",
 		"bootstrap": "~3.3.4",
 		"soyutils": "2014.04.22"
 	}
