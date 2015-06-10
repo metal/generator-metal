@@ -22,7 +22,7 @@ describe('metal:app', function () {
 		assert.file([
 			'demos/index.html',
 			'src/MyComponent.js',
-			'src/MyComponent.scss',
+			'src/mycomponent.scss',
 			'src/MyComponent.soy',
 			'test/MyComponent.js',
 			'test/.jshintrc',
