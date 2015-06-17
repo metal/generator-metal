@@ -97,6 +97,7 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				capitalizeName: this.capitalizeName,
 				lowercaseName: this.lowercaseName,
+				namespace: this.namespace,
 				repoName: this.repoName
 			}
 		);
