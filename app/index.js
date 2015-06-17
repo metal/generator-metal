@@ -33,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'namespace',
 			message: 'What\'s the metal component namespace?',
-			default: 'alloy',
+			default: 'metal',
 			validate: function(input) {
 				if (!input) {
 					return 'You must provide the Metal component namespace.';
