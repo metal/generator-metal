@@ -148,6 +148,9 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js')
 		);
+		this.fs.copy(
+			this.templatePath('_karma-coverage.conf.js'), this.destinationPath('karma-coverage.conf.js')
+		);
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{

@@ -29,6 +29,7 @@ describe('metal:app', function () {
 			'bower.json',
 			'gulpfile.js',
 			'karma.conf.js',
+			'karma-coverage.conf.js',
 			'package.json',
 			'README.md',
 			'.editorconfig',
