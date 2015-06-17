@@ -35,7 +35,6 @@ module.exports = function (config) {
 			instrumenter: {'**/*.js': 'isparta'},
 			instrumenterOptions: {isparta: {babel: babelOptions}},
 			reporters: [
-				{type: 'html'},
 				{type: 'lcov', subdir: 'lcov'},
 				{type: 'text-summary'}
 			]
