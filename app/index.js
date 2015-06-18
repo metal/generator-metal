@@ -143,6 +143,7 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				lowercaseName: this.lowercaseName,
+				namespace: this.namespace,
 				repoName: this.repoName
 			}
 		);
