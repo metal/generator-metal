@@ -12,7 +12,8 @@
 	],
 	"ignore": [
 		"*",
-		"!src/**/*"
+		"!src/**/*",
+		"!test/**/*"
 	],
 	"dependencies": {
 		"bootstrap": "~3.3.4",<% if (buildFormat === 'amd') { %>
