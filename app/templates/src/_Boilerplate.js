@@ -10,6 +10,8 @@ class <%= capitalizeName %> extends SoyComponent {
 	}
 }
 
+<%= capitalizeName %>.ELEMENT_CLASSES = '<%= lowercaseName %>';
+
 ComponentRegistry.register('<%= capitalizeName %>', <%= capitalizeName %>);
 
 export default <%= capitalizeName %>;
