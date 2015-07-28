@@ -117,7 +117,8 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
 			{
-				capitalizeName: this.capitalizeName
+				capitalizeName: this.capitalizeName,
+				lowercaseName: this.lowercaseName
 			}
 		);
 		this.fs.copyTpl(
