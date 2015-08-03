@@ -24,3 +24,5 @@
   ```
   gulp build
   ```
+
+5. Open the demo at demos/index.html on your browser.
