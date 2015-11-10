@@ -19,15 +19,22 @@ module.exports = yeoman.generators.Base.extend({
 		var prompts = [{
 			type: 'input',
 			name: 'componentName',
-			message: 'How do you want to name this component?',
+			message: 'How do you want to name your class?',
 			default: 'MyComponent',
 			validate: function(input) {
 				if (!input) {
-					return 'You must provide a component name.';
+					return 'You must provide a class name.';
 				}
 
 				return true;
 			}
+		},
+		{
+			type: 'list',
+			name: 'superClass',
+			message: 'Which class do you want your class to extend from?',
+			choices: ['Component', 'Attribute', 'none'],
+			default: 'Component'
 		},
 		{
 			type: 'input',
@@ -85,6 +92,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
 			this.buildFormat = props.buildFormat;
+			this.superClass = props.superClass;
 
 			done();
 		}.bind(this));
@@ -92,33 +100,36 @@ module.exports = yeoman.generators.Base.extend({
 
 	writing: function () {
 		var demoTemplateName = 'demos/_' + this.buildFormat + '.html';
-		this.fs.copyTpl(
-			this.templatePath(demoTemplateName), this.destinationPath('demos/index.html'),
-			{
-				capitalizeName: this.capitalizeName,
-				lowercaseName: this.lowercaseName,
-				namespace: this.namespace,
-				repoName: this.repoName
-			}
-		);
+		if (this.superClass === 'Component') {
+			this.fs.copyTpl(
+				this.templatePath(demoTemplateName), this.destinationPath('demos/index.html'),
+				{
+					capitalizeName: this.capitalizeName,
+					lowercaseName: this.lowercaseName,
+					namespace: this.namespace,
+					repoName: this.repoName
+				}
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/_boilerplate.scss'), this.destinationPath('src/' + this.lowercaseName + '.scss'),
+				{
+					lowercaseName: this.lowercaseName
+				}
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
+				{
+					capitalizeName: this.capitalizeName,
+					lowercaseName: this.lowercaseName
+				}
+			);
+		}
 		this.fs.copyTpl(
 			this.templatePath('src/_Boilerplate.js'), this.destinationPath('src/' + this.capitalizeName + '.js'),
 			{
 				capitalizeName: this.capitalizeName,
-				lowercaseName: this.lowercaseName
-			}
-		);
-		this.fs.copyTpl(
-			this.templatePath('src/_boilerplate.scss'), this.destinationPath('src/' + this.lowercaseName + '.scss'),
-			{
-				lowercaseName: this.lowercaseName
-			}
-		);
-		this.fs.copyTpl(
-			this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
-			{
-				capitalizeName: this.capitalizeName,
-				lowercaseName: this.lowercaseName
+				lowercaseName: this.lowercaseName,
+				superClass: this.superClass
 			}
 		);
 		this.fs.copyTpl(
@@ -168,7 +179,8 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_README.md'), this.destinationPath('README.md'),
 			{
 				repoName: this.repoName,
-				repoDescription: this.repoDescription
+				repoDescription: this.repoDescription,
+				superClass: this.superClass
 			}
 		);
 		this.fs.copy(
