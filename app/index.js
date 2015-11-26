@@ -184,6 +184,9 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		);
 		this.fs.copy(
+			this.templatePath('_LICENSE.md'), this.destinationPath('LICENSE.md')
+		);
+		this.fs.copy(
 			this.templatePath('editorconfig'), this.destinationPath('.editorconfig')
 		);
 		this.fs.copy(

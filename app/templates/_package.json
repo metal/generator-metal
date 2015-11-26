@@ -2,7 +2,7 @@
 	"name": "<%= repoName %>",
 	"version": "0.0.0",
 	"description": "<%= repoDescription %>",
-	"license": "MIT",
+	"license": "SEE LICENSE IN LICENSE.md",
 	"repository": "<%= repoOwner %>/<%= repoName %>",
 	"engines": {
 		"node": ">=0.12.0"
