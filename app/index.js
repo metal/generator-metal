@@ -80,7 +80,7 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'repoDescription',
 			message: 'How would you describe this project?',
-			default: 'My awesome AlloyUI project'
+			default: 'My awesome Metal.js project'
 		}];
 
 		this.prompt(prompts, function (props) {
