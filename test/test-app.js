@@ -11,6 +11,7 @@ describe('metal:app', function () {
 			.withOptions({ skipInstall: true })
 			.withPrompts({
 				componentName: 'MyComponent',
+				defaultKarmaConfig: false,
 				repoName: 'my-repo',
 				repoOwner: 'my-user',
 				repoDescription: 'My awesome Metal project'

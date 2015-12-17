@@ -50,6 +50,11 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		},
 		{
+			type: 'confirm',
+			name: 'defaultKarmaConfig',
+			message: 'Do you want to use the default karma configuration? (if so, the karma.conf.js file won\'t be generated, since the gulp tasks will handle the config)'
+		},
+		{
 			type: 'input',
 			name: 'repoOwner',
 			message: 'What\'s the GitHub username?',
@@ -73,6 +78,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.capitalizeName = _.capitalize(props.componentName);
 			this.lowercaseName = props.componentName[0].toLowerCase() + props.componentName.substr(1);
 
+			this.defaultKarmaConfig = props.defaultKarmaConfig;
 			this.repoName = 'metal-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
@@ -142,12 +148,14 @@ module.exports = yeoman.generators.Base.extend({
 				repoName: this.repoName
 			}
 		);
-		this.fs.copy(
-			this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js')
-		);
-		this.fs.copy(
-			this.templatePath('_karma-coverage.conf.js'), this.destinationPath('karma-coverage.conf.js')
-		);
+		if (!this.defaultKarmaConfig) {
+			this.fs.copy(
+				this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js')
+			);
+			this.fs.copy(
+				this.templatePath('_karma-coverage.conf.js'), this.destinationPath('karma-coverage.conf.js')
+			);
+		}
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
