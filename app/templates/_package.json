@@ -11,8 +11,7 @@
 		"test": "gulp test"
 	},
 	"keywords": [
-		"metal",
-		"<%= namespace %>"
+		"metal"
 	],
 	"devDependencies": {
 		"babel-preset-metal": "^1.0.3",

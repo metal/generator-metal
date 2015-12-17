@@ -2,7 +2,6 @@
 
 var _      = require('lodash');
 var chalk  = require('chalk');
-var path   = require('path');
 var yeoman = require('yeoman-generator');
 var yosay  = require('yosay');
 
@@ -35,19 +34,6 @@ module.exports = yeoman.generators.Base.extend({
 			message: 'Which class do you want your class to extend from?',
 			choices: ['Component', 'Attribute', 'none'],
 			default: 'Component'
-		},
-		{
-			type: 'input',
-			name: 'namespace',
-			message: 'What\'s the metal component namespace?',
-			default: 'metal',
-			validate: function(input) {
-				if (!input) {
-					return 'You must provide the Metal component namespace.';
-				}
-
-				return true;
-			}
 		},
 		{
 			type: 'list',
@@ -87,8 +73,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.capitalizeName = _.capitalize(props.componentName);
 			this.lowercaseName = props.componentName[0].toLowerCase() + props.componentName.substr(1);
 
-			this.namespace = props.namespace;
-			this.repoName = props.namespace + '-' + this.lowercaseName;
+			this.repoName = 'metal-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
 			this.buildFormat = props.buildFormat;
@@ -106,7 +91,6 @@ module.exports = yeoman.generators.Base.extend({
 				{
 					capitalizeName: this.capitalizeName,
 					lowercaseName: this.lowercaseName,
-					namespace: this.namespace,
 					repoName: this.repoName
 				}
 			);
@@ -146,7 +130,6 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				capitalizeName: this.capitalizeName,
-				namespace: this.namespace,
 				repoName: this.repoName,
 				repoDescription: this.repoDescription
 			}
@@ -156,7 +139,6 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				lowercaseName: this.lowercaseName,
-				namespace: this.namespace,
 				repoName: this.repoName
 			}
 		);
@@ -169,7 +151,6 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
-				namespace: this.namespace,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription

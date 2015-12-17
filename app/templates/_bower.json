@@ -7,8 +7,7 @@
 		"es6"
 	],
 	"keywords": [
-		"metal",
-		"<%= namespace %>"
+		"metal"
 	],
 	"ignore": [
 		"*",
