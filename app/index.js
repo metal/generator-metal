@@ -159,6 +159,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
+				defaultKarmaConfig: this.defaultKarmaConfig,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription
