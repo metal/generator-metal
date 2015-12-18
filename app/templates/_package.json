@@ -2,7 +2,7 @@
 	"name": "<%= repoName %>",
 	"version": "0.0.0",
 	"description": "<%= repoDescription %>",
-	"license": "SEE LICENSE IN LICENSE.md",
+	"license": "BSD",
 	"repository": "<%= repoOwner %>/<%= repoName %>",
 	"engines": {
 		"node": ">=0.12.0"
