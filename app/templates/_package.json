@@ -5,7 +5,8 @@
 	"license": "BSD",
 	"repository": "<%= repoOwner %>/<%= repoName %>",
 	"engines": {
-		"node": ">=0.12.0"
+		"node": ">=0.12.0",
+		"npm": ">=3.0.0"
 	},
 	"scripts": {
 		"test": "gulp test"
@@ -13,11 +14,15 @@
 	"keywords": [
 		"metal"
 	],
+	"dependencies": {
+		"closure-templates": "20140422.0.0",
+		"metal": "metal/metal.js#master"
+	},
 	"devDependencies": {<% if (!defaultKarmaConfig) { %>
-		"babel-preset-metal": "^1.0.3",
+		"babel-preset-metal": "^2.0.0",
 		"chai": "^2.3.0",<% } %>
 		"gulp": "^3.8.11",
-		"gulp-metal": "^0.8.0"<% if (!defaultKarmaConfig) { %>,
+		"gulp-metal": "^0.9.0"<% if (!defaultKarmaConfig) { %>,
 		"isparta": "^4.0.0",
 		"karma": "^0.13.9",
 		"karma-babel-preprocessor": "^6.0.1",

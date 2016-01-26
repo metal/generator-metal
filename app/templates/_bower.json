@@ -14,11 +14,9 @@
 		"!src/**/*",
 		"!test/**/*"
 	],
-	"dependencies": {
-		"bootstrap": "~3.3.4",<% if (buildFormat === 'amd') { %>
-		"requirejs": "~2.1.18",<% } %><% if (buildFormat === 'jquery') { %>
-		"jquery": "~2.1.4",<% } %>
-		"metal": "metal/metal.js#master",
-		"metal-jquery-adapter": "metal/metal-jquery-adapter#master"
+	"devDependencies": {
+		"bootstrap": "~3.3.4"<% if (buildFormat === 'amd') { %>,
+		"requirejs": "~2.1.18"<% } %><% if (buildFormat === 'jquery') { %>,
+		"jquery": "~2.1.4"<% } %>
 	}
 }

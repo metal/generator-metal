@@ -1,3 +1,5 @@
+'use strict';
+
 var isparta = require('isparta');
 
 var babelOptions = {
@@ -10,8 +12,8 @@ module.exports = function (config) {
 		frameworks: ['mocha', 'chai', 'source-map-support', 'commonjs'],
 
 		files: [
-			'bower_components/soyutils/soyutils.js',
-			'bower_components/metal/src/**/*.js',
+			'node_modules/closure-templates/soyutils.js',
+			'node_modules/metal/src/**/*.js',
 			'src/**/*.js',
 			'test/**/*.js'
 		],
@@ -19,7 +21,7 @@ module.exports = function (config) {
 		preprocessors: {
 			'src/**/!(*.soy).js': ['coverage', 'commonjs'],
 			'src/**/*.soy.js': ['babel', 'commonjs'],
-			'bower_components/metal/**/*.js': ['babel', 'commonjs'],
+			'node_modules/metal/**/*.js': ['babel', 'commonjs'],
 			'test/**/*.js': ['babel', 'commonjs']
 		},
 
@@ -39,4 +41,4 @@ module.exports = function (config) {
 			]
 		}
 	});
-}
+};
