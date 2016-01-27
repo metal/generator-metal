@@ -3,7 +3,6 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 
 describe('metal:app', function () {
 	before(function (done) {
@@ -27,7 +26,6 @@ describe('metal:app', function () {
 			'src/MyComponent.soy',
 			'test/MyComponent.js',
 			'test/.jshintrc',
-			'bower.json',
 			'gulpfile.js',
 			'karma.conf.js',
 			'karma-coverage.conf.js',

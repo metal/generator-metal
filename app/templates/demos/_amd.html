@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Demo: <%= capitalizeName %></title>
 
-	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
 
 	<script src="../node_modules/closure-templates/soyutils.js"></script>
-	<script src="../bower_components/requirejs/require.js"></script>
+	<script src="../node_modules/requirejs/require.js"></script>
 </head>
 <body>
 	<h1><%= capitalizeName %></h1>
@@ -17,7 +17,7 @@
 	    baseUrl: '../build/amd'
 		});
 		requirejs(['<%= repoName %>/src/<%= capitalizeName %>'], function(<%= capitalizeName %>) {
-			new <%= capitalizeName %>().render();
+			new <%= capitalizeName %>().default.render();
 		});
 	</script>
 </body>

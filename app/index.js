@@ -132,15 +132,6 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('test/jshintrc'), this.destinationPath('test/.jshintrc')
 		);
 		this.fs.copyTpl(
-			this.templatePath('_bower.json'), this.destinationPath('bower.json'),
-			{
-				buildFormat: this.buildFormat,
-				capitalizeName: this.capitalizeName,
-				repoName: this.repoName,
-				repoDescription: this.repoDescription
-			}
-		);
-		this.fs.copyTpl(
 			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
 			{
 				buildFormat: this.buildFormat,
@@ -159,6 +150,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
+				buildFormat: this.buildFormat,
 				defaultKarmaConfig: this.defaultKarmaConfig,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
@@ -188,6 +180,6 @@ module.exports = yeoman.generators.Base.extend({
 	},
 
 	install: function () {
-		this.installDependencies();
+		this.npmInstall();
 	}
 });
