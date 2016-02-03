@@ -31,7 +31,7 @@ module.exports = yeoman.generators.Base.extend({
 		{
 			type: 'list',
 			name: 'superClass',
-			message: 'Which class do you want your class to extend from?',
+			message: 'What do you want your class to extend from?',
 			choices: ['Component', 'Attribute', 'none'],
 			default: 'Component'
 		},
@@ -48,6 +48,12 @@ module.exports = yeoman.generators.Base.extend({
 
 				return true;
 			}
+		},
+		{
+			type: 'confirm',
+			name: 'isNodeModule',
+			message: 'Is this component supposed to run on node environment? (that is, should other modules be able to "require" and use it?)',
+			default: false
 		},
 		{
 			type: 'confirm',
@@ -79,6 +85,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.lowercaseName = props.componentName[0].toLowerCase() + props.componentName.substr(1);
 
 			this.defaultKarmaConfig = props.defaultKarmaConfig;
+			this.isNodeModule = props.isNodeModule;
 			this.repoName = 'metal-' + this.lowercaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
@@ -151,7 +158,9 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
 				buildFormat: this.buildFormat,
+				capitalizeName: this.capitalizeName,
 				defaultKarmaConfig: this.defaultKarmaConfig,
+				isNodeModule: this.isNodeModule,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription
@@ -171,8 +180,11 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('editorconfig'), this.destinationPath('.editorconfig')
 		);
-		this.fs.copy(
-			this.templatePath('gitignore'), this.destinationPath('.gitignore')
+		this.fs.copyTpl(
+			this.templatePath('gitignore'), this.destinationPath('.gitignore'),
+			{
+				isNodeModule: this.isNodeModule
+			}
 		);
 		this.fs.copy(
 			this.templatePath('jshintrc'), this.destinationPath('.jshintrc')
