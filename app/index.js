@@ -142,6 +142,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
 			{
 				buildFormat: this.buildFormat,
+				isNodeModule: this.isNodeModule,
 				lowercaseName: this.lowercaseName,
 				repoName: this.repoName
 			}
@@ -152,6 +153,11 @@ module.exports = yeoman.generators.Base.extend({
 			);
 			this.fs.copy(
 				this.templatePath('_karma-coverage.conf.js'), this.destinationPath('karma-coverage.conf.js')
+			);
+		}
+		if (this.isNodeModule) {
+			this.fs.copy(
+				this.templatePath('env/test/_node.js'), this.destinationPath('env/test/node.js')
 			);
 		}
 		this.fs.copyTpl(
