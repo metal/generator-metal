@@ -8,8 +8,8 @@
 		"node": ">=0.12.0",
 		"npm": ">=3.0.0"
 	},<% if (isNodeModule) { %>
-	"main": "lib/<%= capitalizeName %>.js",
-	"browser": "src/<%= capitalizeName %>.js",<% } %>
+	"main": "lib/<%= capitalizeName %>.js",<% } %>
+	"browser": "src/<%= capitalizeName %>.js",
 	"files": [<% if (isNodeModule) { %>
 		"lib",<% } %>
 		"src",
