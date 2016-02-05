@@ -1,6 +1,6 @@
 {
   "name": "generator-metal",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Yeoman generator for Metal.js components",
   "license": "MIT",
   "main": "app/index.js",
