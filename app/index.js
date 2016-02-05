@@ -169,7 +169,8 @@ module.exports = yeoman.generators.Base.extend({
 				isNodeModule: this.isNodeModule,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
-				repoDescription: this.repoDescription
+				repoDescription: this.repoDescription,
+				superClass: this.superClass
 			}
 		);
 		this.fs.copyTpl(
