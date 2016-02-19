@@ -40,7 +40,7 @@
 		"babel-preset-metal": "^2.0.0",
 		"chai": "^2.3.0",<% } %>
 		"gulp": "^3.8.11",
-		"gulp-metal": "^0.13.0"<% if (!defaultKarmaConfig) { %>,
+		"gulp-metal": "^0.14.0"<% if (!defaultKarmaConfig) { %>,
 		"isparta": "^4.0.0"<% } %><% if (buildFormat === 'jquery') { %>,
 		"jquery": "^2.2.0"<% } %><% if (!defaultKarmaConfig) { %>,
 		"karma": "^0.13.9",
