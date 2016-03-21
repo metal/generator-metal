@@ -32,7 +32,7 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'list',
 			name: 'superClass',
 			message: 'What do you want your class to extend from?',
-			choices: ['Component', 'Attribute', 'none'],
+			choices: ['Component', 'State', 'none'],
 			default: 'Component'
 		},
 		{

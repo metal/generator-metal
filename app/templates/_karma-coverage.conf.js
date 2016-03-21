@@ -12,8 +12,9 @@ module.exports = function (config) {
 		frameworks: ['mocha', 'chai', 'source-map-support', 'commonjs'],
 
 		files: [
-			'node_modules/closure-templates/soyutils.js',
-			'node_modules/metal/src/**/*.js',
+			'node_modules/metal-soy-bundle/build/bundle.js',
+			'node_modules/html2incdom/src/*.js',
+			'node_modules/metal*/src/**/*.js',
 			'src/**/*.js',
 			'test/**/*.js'
 		],
@@ -21,7 +22,9 @@ module.exports = function (config) {
 		preprocessors: {
 			'src/**/!(*.soy).js': ['coverage', 'commonjs'],
 			'src/**/*.soy.js': ['babel', 'commonjs'],
-			'node_modules/metal/**/*.js': ['babel', 'commonjs'],
+			'node_modules/html2incdom/src/*.js': ['babel', 'commonjs'],
+			'node_modules/metal-soy-bundle/build/bundle.js': ['commonjs'],
+			'node_modules/metal*/src/**/*.js': ['babel', 'commonjs'],
 			'test/**/*.js': ['babel', 'commonjs']
 		},
 
