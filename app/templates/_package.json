@@ -26,9 +26,9 @@
 	],
 	"dependencies": {
     "bootstrap": "^3.3.6"<% if (superClass === 'State') { %>,
-		"metal-state": "metal/metal-state#master"<% } else if (superClass === 'Component') { %>,
-		"metal-component": "metal/metal-component#master",
-		"metal-soy": "metal/metal-soy#master"<% } %>
+		"metal-state": "1.0.0-rc.1"<% } else if (superClass === 'Component') { %>,
+		"metal-component": "1.0.0-rc.2",
+		"metal-soy": "1.0.0-rc.2"<% } %>
 	},
 	"devDependencies": {<% if (isNodeModule) { %>
 		"babel-cli": "^6.4.5",
