@@ -32,8 +32,18 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'list',
 			name: 'superClass',
 			message: 'What do you want your class to extend from?',
-			choices: ['Component', 'State', 'none'],
+			choices: ['Component', 'State', 'None'],
 			default: 'Component'
+		},
+		{
+			type: 'list',
+			name: 'templateLanguage',
+			message: 'Which template language do you want to use?',
+			choices: ['Soy', 'JSX', 'None'],
+			default: 'Soy',
+			when: function(props) {
+				return props.superClass === 'Component';
+			}
 		},
 		{
 			type: 'list',
@@ -91,6 +101,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.repoDescription = props.repoDescription;
 			this.buildFormat = props.buildFormat;
 			this.superClass = props.superClass;
+			this.templateLanguage = props.templateLanguage || 'None';
 
 			done();
 		}.bind(this));
@@ -113,20 +124,21 @@ module.exports = yeoman.generators.Base.extend({
 					lowercaseName: this.lowercaseName
 				}
 			);
-			this.fs.copyTpl(
-				this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
-				{
-					capitalizeName: this.capitalizeName,
-					lowercaseName: this.lowercaseName
-				}
-			);
+			if (this.templateLanguage === 'Soy') {
+				this.fs.copyTpl(
+					this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
+					{
+						capitalizeName: this.capitalizeName,
+						lowercaseName: this.lowercaseName
+					}
+				);
+			}
 		}
 		this.fs.copyTpl(
-			this.templatePath('src/_Boilerplate.js'), this.destinationPath('src/' + this.capitalizeName + '.js'),
+			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.capitalizeName + '.js'),
 			{
 				capitalizeName: this.capitalizeName,
-				lowercaseName: this.lowercaseName,
-				superClass: this.superClass
+				templateLanguage: this.templateLanguage
 			}
 		);
 		this.fs.copyTpl(
@@ -144,7 +156,8 @@ module.exports = yeoman.generators.Base.extend({
 				buildFormat: this.buildFormat,
 				isNodeModule: this.isNodeModule,
 				lowercaseName: this.lowercaseName,
-				repoName: this.repoName
+				repoName: this.repoName,
+				templateLanguage: this.templateLanguage
 			}
 		);
 		if (!this.defaultKarmaConfig) {
@@ -170,7 +183,8 @@ module.exports = yeoman.generators.Base.extend({
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription,
-				superClass: this.superClass
+				superClass: this.superClass,
+				templateLanguage: this.templateLanguage
 			}
 		);
 		this.fs.copyTpl(
