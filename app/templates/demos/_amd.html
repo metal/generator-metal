@@ -16,7 +16,7 @@
 	    baseUrl: '../build/amd'
 		});
 		requirejs(['<%= repoName %>/src/<%= capitalizeName %>'], function(<%= capitalizeName %>) {
-			new <%= capitalizeName %>.default().render();
+			new <%= capitalizeName %>.default();
 		});
 	</script>
 </body>
