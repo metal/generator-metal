@@ -21,6 +21,16 @@ Then, install this generator:
 [sudo] npm install -g generator-metal
 ```
 
+## Usage
+
+Just run the following command on the directory you wish to use for your project:
+
+```sh
+yo metal
+```
+
+The generator will ask you a few questions about the project. Once you've answered all of them it will automatically generate a starting structure for you, as well as download all the local dependencies.
+
 ## History
 
 For detailed changelog, see [Releases](https://github.com/metal/generator-metal/releases).
