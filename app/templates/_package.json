@@ -16,10 +16,12 @@
 		"src",
 		"test"
 	],
-	"scripts": {<% if (isNodeModule) { %>
+	"scripts": {
+		"build": "gulp build",<% if (isNodeModule) { %>
 		"compile": "babel --presets es2015 -d lib/ src/",
 		"publish": "npm run compile",<% } %>
-		"test": "gulp test"
+		"test": "gulp test",
+		"watch": "gulp build:watch"
 	},
 	"keywords": [
 		"metal"
