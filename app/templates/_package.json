@@ -31,7 +31,9 @@
 			[
 				"incremental-dom",
 				{
-					"prefix": "IncrementalDOM"
+					"components": true,
+					"prefix": "IncrementalDOM",
+					"runtime": "iDOMHelpers"
 				}
 			]
 		]
@@ -48,7 +50,7 @@
 		"metal": "1.0.0-rc.1"
 	},<% } %>
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
-		"babel-plugin-incremental-dom": "^3.0.3",<% } %><% if (isNodeModule) { %>
+		"babel-plugin-incremental-dom": "^3.1.0",<% } %><% if (isNodeModule) { %>
 		"babel-cli": "^6.4.5",
 		"babel-preset-es2015": "^6.3.13",<% } %><% if (!defaultKarmaConfig) { %>
 		"babel-preset-metal": "^3.0.0",
