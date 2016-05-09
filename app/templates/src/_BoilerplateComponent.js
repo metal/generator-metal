@@ -1,16 +1,16 @@
 'use strict';
 <% if (templateLanguage === 'Soy') { %>
-import templates from './<%= capitalizeName %>.soy';<% } %>
-import Component from 'metal-component';<% if (templateLanguage === 'Soy') { %>
-import Soy from 'metal-soy';<% } %><% if (templateLanguage === 'JSX') { %>
-import JSX from 'metal-jsx';<% } %>
+import templates from './<%= capitalizeName %>.soy';
+import Component from 'metal-component';
+import Soy from 'metal-soy';<% } else if (templateLanguage === 'JSX') { %>
+import JSXComponent from 'metal-jsx';<% } %>
 
-class <%= capitalizeName %> extends Component {<% if (templateLanguage === 'JSX') { %>
+<% if (templateLanguage === 'JSX') { %>class <%= capitalizeName %> extends JSXComponent {
 	render() {
 		return <div>Hello World</div>;
-	}<% } %>
-}<% if (templateLanguage === 'Soy') { %>
-Soy.register(<%= capitalizeName %>, templates);<% } else if (templateLanguage === 'JSX') { %>
-JSX.register(<%= capitalizeName %>);<% } %>
+	}
+}<% } else { %>class <%= capitalizeName %> extends Component {
+}
+Soy.register(<%= capitalizeName %>, templates);<% } %>
 
 export default <%= capitalizeName %>;
