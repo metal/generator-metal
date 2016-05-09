@@ -39,15 +39,15 @@
 		]
 	},<% } %><% if (superClass === 'State') { %>
 	"dependencies": {
-		"metal-state": "1.0.0-rc.1"
+		"metal-state": "^1.0.0-rc.3"
 	},<% } else if (superClass === 'Component') { %>
 	"dependencies": {
-		"metal-component": "1.0.0-rc.2"<% if (templateLanguage === 'Soy') { %>,
-		"metal-soy": "1.0.0-rc.2"<% } else if (templateLanguage === 'JSX') { %>,
-		"metal-jsx": "1.0.0-rc"<% } %>
+		"metal-component": "^1.0.0-rc.11"<% if (templateLanguage === 'Soy') { %>,
+		"metal-soy": "^1.0.0-rc.11"<% } else if (templateLanguage === 'JSX') { %>,
+		"metal-jsx": "^1.0.0-rc.9"<% } %>
 	},<% } else { %>
 	"dependencies": {
-		"metal": "1.0.0-rc.1"
+		"metal": "^1.0.0-rc.2"
 	},<% } %>
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
 		"babel-plugin-incremental-dom": "^3.1.0",<% } %><% if (isNodeModule) { %>

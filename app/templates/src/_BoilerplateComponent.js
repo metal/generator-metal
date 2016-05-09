@@ -6,8 +6,8 @@ import Soy from 'metal-soy';<% } %><% if (templateLanguage === 'JSX') { %>
 import JSX from 'metal-jsx';<% } %>
 
 class <%= capitalizeName %> extends Component {<% if (templateLanguage === 'JSX') { %>
-	jsx() {
-		return <div></div>;
+	render() {
+		return <div>Hello World</div>;
 	}<% } %>
 }<% if (templateLanguage === 'Soy') { %>
 Soy.register(<%= capitalizeName %>, templates);<% } else if (templateLanguage === 'JSX') { %>
