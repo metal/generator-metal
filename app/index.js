@@ -19,7 +19,7 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'componentName',
 			message: 'How do you want to name your class?',
-			default: 'MyComponent',
+			default: 'Modal',
 			validate: function(input) {
 				if (!input) {
 					return 'You must provide a class name.';
