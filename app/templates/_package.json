@@ -27,16 +27,7 @@
 		"metal"
 	],<% if (templateLanguage === 'JSX') { %>
 	"babel": {
-		"plugins": [
-			[
-				"incremental-dom",
-				{
-					"components": true,
-					"prefix": "IncrementalDOM",
-					"runtime": "iDOMHelpers"
-				}
-			]
-		]
+		"presets": ["metal-jsx"]
 	},<% } %><% if (superClass === 'State') { %>
 	"dependencies": {
 		"metal-state": "^1.0.0-rc.3"
@@ -50,7 +41,7 @@
 		"metal": "^1.0.0-rc.2"
 	},<% } %>
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
-		"babel-plugin-incremental-dom": "^3.1.0",<% } %><% if (isNodeModule) { %>
+		"babel-preset-metal-jsx": "^0.0.2",<% } %><% if (isNodeModule) { %>
 		"babel-cli": "^6.4.5",
 		"babel-preset-es2015": "^6.3.13",<% } %><% if (!defaultKarmaConfig) { %>
 		"babel-preset-metal": "^3.0.0",
