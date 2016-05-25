@@ -9,9 +9,7 @@ describe('metal:app', function () {
 		helpers.run(path.join(__dirname, '../app'))
 			.withOptions({ skipInstall: true })
 			.withPrompts({
-				componentName: 'MyComponent',
 				defaultKarmaConfig: false,
-				repoName: 'my-repo',
 				repoOwner: 'my-user',
 				repoDescription: 'My awesome Metal project'
 			})
@@ -21,10 +19,10 @@ describe('metal:app', function () {
 	it('creates files', function () {
 		assert.file([
 			'demos/index.html',
-			'src/MyComponent.js',
-			'src/myComponent.scss',
-			'src/MyComponent.soy',
-			'test/MyComponent.js',
+			'src/Modal.js',
+			'src/modal.scss',
+			'src/Modal.soy',
+			'test/Modal.js',
 			'test/.jshintrc',
 			'gulpfile.js',
 			'karma.conf.js',
