@@ -24,6 +24,11 @@ module.exports = yeoman.generators.Base.extend({
 				if (!input) {
 					return 'You must provide a class name.';
 				}
+				if (!/^[^_\-\s\d][^_\-\s]*$/.test(input)) {
+					return 'Invalid class name. Class names can\'t contain whitespace or ' +
+					'any of the following characters: "-_". Also, class names can\'t ' +
+					'start with digits.';
+				}
 
 				return true;
 			}
