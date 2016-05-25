@@ -1,5 +1,5 @@
 bower_components
 build
 coverage
-node_modules<% if (isNodeModule) { %>
-/lib<% } %>
+node_modules
+/lib

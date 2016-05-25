@@ -7,19 +7,18 @@
 	"engines": {
 		"node": ">=0.12.0",
 		"npm": ">=3.0.0"
-	},<% if (isNodeModule) { %>
+	},
 	"main": "lib/<%= capitalizeName %>.js",
-	"browser": "src/<%= capitalizeName %>.js",<% } else { %>
-	"main": "src/<%= capitalizeName %>.js",<% } %>
-	"files": [<% if (isNodeModule) { %>
-		"lib",<% } %>
+	"jsnext:main": "src/<%= capitalizeName %>.js",
+	"files": [
+		"lib",
 		"src",
 		"test"
 	],
 	"scripts": {
-		"build": "gulp build",<% if (isNodeModule) { %>
+		"build": "gulp build",
 		"compile": "babel --presets es2015 -d lib/ src/",
-		"publish": "npm run compile",<% } %>
+		"prepublish": "npm run compile",
 		"test": "gulp test",
 		"watch": "gulp build:watch"
 	},
@@ -42,9 +41,9 @@
 		"metal": "^1.0.0-rc.2"
 	},<% } %>
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
-		"babel-preset-metal-jsx": "^0.0.2",<% } %><% if (isNodeModule) { %>
+		"babel-preset-metal-jsx": "^0.0.2",<% } %>
 		"babel-cli": "^6.4.5",
-		"babel-preset-es2015": "^6.3.13",<% } %><% if (!defaultKarmaConfig) { %>
+		"babel-preset-es2015": "^6.3.13",<% if (!defaultKarmaConfig) { %>
 		"babel-preset-metal": "^3.0.0",
 		"chai": "^2.3.0",<% } %>
 		"gulp": "^3.8.11",

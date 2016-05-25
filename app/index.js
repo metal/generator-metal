@@ -186,7 +186,6 @@ module.exports = yeoman.generators.Base.extend({
 				buildFormat: this.buildFormat,
 				capitalizeName: this.capitalizeName,
 				defaultKarmaConfig: this.defaultKarmaConfig,
-				isNodeModule: this.isNodeModule,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription,
@@ -208,11 +207,8 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('editorconfig'), this.destinationPath('.editorconfig')
 		);
-		this.fs.copyTpl(
-			this.templatePath('gitignore'), this.destinationPath('.gitignore'),
-			{
-				isNodeModule: this.isNodeModule
-			}
+		this.fs.copy(
+			this.templatePath('gitignore'), this.destinationPath('.gitignore')
 		);
 		this.fs.copy(
 			this.templatePath('jshintrc'), this.destinationPath('.jshintrc')
