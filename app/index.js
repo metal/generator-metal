@@ -113,6 +113,8 @@ module.exports = yeoman.generators.Base.extend({
 	},
 
 	writing: function () {
+		this.destinationRoot(this.repoName);
+
 		var demoTemplateName = 'demos/_' + this.buildFormat + '.html';
 		if (this.superClass === 'Component') {
 			this.fs.copyTpl(
