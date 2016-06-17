@@ -17,8 +17,9 @@
 	],
 	"scripts": {
 		"build": "gulp build",
-		"compile": "babel --presets es2015 -d lib/ src/",
-		"prepublish": "npm run compile",
+		"compile": "babel --presets metal -d lib/ src/",<% if (templateLanguage === 'Soy') { %>
+		"prepublish": "gulp soy && npm run compile",<% } else { %>
+		"prepublish": "npm run compile",<% } %>
 		"test": "gulp test",
 		"watch": "gulp build:watch"
 	},
@@ -26,7 +27,7 @@
 		"metal"
 	],<% if (templateLanguage === 'JSX') { %>
 	"babel": {
-		"presets": ["metal-jsx"]
+		"presets": ["metal", "metal-jsx"]
 	},<% } %><% if (superClass === 'State') { %>
 	"dependencies": {
 		"metal-state": "^1.0.0-rc.3"
@@ -43,8 +44,7 @@
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
 		"babel-preset-metal-jsx": "^0.0.2",<% } %>
 		"babel-cli": "^6.4.5",
-		"babel-preset-es2015": "^6.3.13",<% if (!defaultKarmaConfig) { %>
-		"babel-preset-metal": "^3.0.0",
+		"babel-preset-metal": "^4.0.0",<% if (!defaultKarmaConfig) { %>
 		"chai": "^2.3.0",<% } %>
 		"gulp": "^3.8.11",
 		"gulp-metal": "^1.0.0"<% if (!defaultKarmaConfig) { %>,
