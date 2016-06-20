@@ -1,6 +1,6 @@
 'use strict';
 <% if (templateLanguage === 'Soy') { %>
-import templates from './<%= capitalizeName %>.soy';
+import templates from './<%= capitalizeName %>.soy.js';
 import Component from 'metal-component';
 import Soy from 'metal-soy';<% } else if (templateLanguage === 'JSX') { %>
 import JSXComponent from 'metal-jsx';<% } else { %>
