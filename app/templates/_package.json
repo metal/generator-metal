@@ -30,16 +30,16 @@
 		"presets": ["metal", "metal-jsx"]
 	},<% } %><% if (superClass === 'State') { %>
 	"dependencies": {
-		"metal-state": "^1.0.0"
+		"metal-state": "^2.0.0"
 	},<% } else if (superClass === 'Component') { %>
 	"dependencies": {
     "bootstrap": "^3.3.6"<% if (templateLanguage === 'Soy') { %>,
-		"metal-soy": "^1.0.0"<% } else if (templateLanguage === 'JSX') { %>,
-		"metal-jsx": "^1.0.0"<% } else { %>,
-		"metal-component": "^1.0.0"<% } %>
+		"metal-soy": "^2.0.0"<% } else if (templateLanguage === 'JSX') { %>,
+		"metal-jsx": "^2.0.0"<% } else { %>,
+		"metal-component": "^2.0.0"<% } %>
 	},<% } else { %>
 	"dependencies": {
-		"metal": "^1.0.0"
+		"metal": "^2.0.0"
 	},<% } %>
 	"devDependencies": {<% if (templateLanguage === 'JSX') { %>
 		"babel-preset-metal-jsx": "^0.0.2",<% } %>
