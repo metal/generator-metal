@@ -6,7 +6,7 @@
 	<title>Demo: <%= capitalizeName %></title>
 
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
+	<link rel="stylesheet" href="../build/<%= kebabCaseName %>.css">
 
 	<script src="../node_modules/requirejs/require.js"></script>
 </head>
@@ -16,8 +16,8 @@
 		requirejs.config({
 	    baseUrl: '../build/amd'
 		});
-		requirejs(['<%= repoName %>/src/<%= capitalizeName %>'], function(<%= capitalizeName %>) {
-			new <%= capitalizeName %>.default();
+		requirejs(['<%= repoName %>/src/<%= capCaseName %>'], function(<%= capCaseName %>) {
+			new <%= capCaseName %>.default();
 		});
 	</script>
 </body>

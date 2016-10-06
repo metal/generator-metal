@@ -2,10 +2,10 @@
 
 import State from 'metal-state';
 
-class <%= capitalizeName %> extends State {
+class <%= capCaseName %> extends State {
 }
 
-<%= capitalizeName %>.STATE = {
+<%= capCaseName %>.STATE = {
 };
 
-export default <%= capitalizeName %>;
+export default <%= capCaseName %>;

@@ -3,8 +3,8 @@
 var metal = require('gulp-metal');
 
 metal.registerTasks({
-	bundleCssFileName: '<%= lowercaseName %>.css',
-	bundleFileName: '<%= lowercaseName %>.js',<% if (buildFormat !== 'globals') { %>
+	bundleCssFileName: '<%= kebabCaseName %>.css',
+	bundleFileName: '<%= kebabCaseName %>.js',<% if (buildFormat !== 'globals') { %>
 	mainBuildJsTasks: ['build:<%= buildFormat %>:js'],<% } %>
 	moduleName: '<%= repoName %>'<% if (templateLanguage !== 'Soy') { %>,
 	noSoy: true<% } %><% if (isNodeModule) { %>,

@@ -6,14 +6,14 @@
 	<title>Demo: <%= capitalizeName %></title>
 
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
+	<link rel="stylesheet" href="../build/<%= kebabCaseName %>.css">
 
-	<script src="../build/globals/<%= lowercaseName %>.js"></script>
+	<script src="../build/globals/<%= kebabCaseName %>.js"></script>
 </head>
 <body>
 	<h1><%= capitalizeName %></h1>
 	<script type="text/javascript">
-		new metal.<%= capitalizeName %>();
+		new metal.<%= capCaseName %>();
 	</script>
 </body>
 </html>

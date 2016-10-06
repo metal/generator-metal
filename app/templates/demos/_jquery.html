@@ -6,16 +6,16 @@
 	<title>Demo: <%= capitalizeName %></title>
 
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="../build/<%= lowercaseName %>.css">
+	<link rel="stylesheet" href="../build/<%= kebabCaseName %>.css">
 
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../build/jquery/<%= lowercaseName %>.js"></script>
+	<script src="../build/jquery/<%= kebabCaseName %>.js"></script>
 </head>
 <body>
 	<h1><%= capitalizeName %></h1>
-	<div id="<%= capitalizeName %>"></div>
+	<div id="<%= camelCaseName %>"></div>
 	<script type="text/javascript">
-		$('#<%= capitalizeName %>').<%= lowercaseName %>();
+		$('#<%= camelCaseName %>').<%= kebabCaseName %>();
 	</script>
 </body>
 </html>

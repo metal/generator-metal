@@ -19,14 +19,15 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'componentName',
 			message: 'How do you want to name your class?',
-			default: 'Modal',
+			default: 'Select Input',
 			validate: function(input) {
 				if (!input) {
-					return 'You must provide a class name.';
+					return 'You must provide a class name. Names should be capitalized ' +
+					'and separated by spaces.';
 				}
 				if (!/^[^_\-\s\d][^_\-\s]*$/.test(input)) {
-					return 'Invalid class name. Class names can\'t contain whitespace or ' +
-					'any of the following characters: "-_". Also, class names can\'t ' +
+					return 'Invalid component name. Component names can\'t contain any ' +
+					'of the following characters: "-_". Also, class names can\'t ' +
 					'start with digits.';
 				}
 
@@ -96,12 +97,16 @@ module.exports = yeoman.generators.Base.extend({
 		}];
 
 		this.prompt(prompts, function (props) {
-			this.capitalizeName = _.capitalize(props.componentName);
-			this.lowercaseName = props.componentName[0].toLowerCase() + props.componentName.substr(1);
+			var displayName = _.startCase(props.componentName.replace(/\s+/g, ' ').trim());
+
+			this.camelCaseName = _.camelCase(displayName);
+			this.capCaseName = displayName.replace(' ', '');
+			this.capitalizeName = displayName;
+			this.kebabCaseName = _.kebabCase(displayName);
 
 			this.defaultKarmaConfig = props.defaultKarmaConfig;
 			this.isNodeModule = props.isNodeModule;
-			this.repoName = 'metal-' + this.lowercaseName;
+			this.repoName = 'metal-' + this.kebabCaseName;
 			this.repoOwner = props.repoOwner;
 			this.repoDescription = props.repoDescription;
 			this.buildFormat = props.buildFormat;
@@ -120,38 +125,40 @@ module.exports = yeoman.generators.Base.extend({
 			this.fs.copyTpl(
 				this.templatePath(demoTemplateName), this.destinationPath('demos/index.html'),
 				{
+					camelCaseName: this.camelCaseName,
+					capCaseName: this.capCaseName,
 					capitalizeName: this.capitalizeName,
-					lowercaseName: this.lowercaseName,
+					kebabCaseName: this.kebabCaseName,
 					repoName: this.repoName
 				}
 			);
 			this.fs.copyTpl(
-				this.templatePath('src/_boilerplate.scss'), this.destinationPath('src/' + this.lowercaseName + '.scss'),
+				this.templatePath('src/_boilerplate.scss'), this.destinationPath('src/' + this.kebabCaseName + '.scss'),
 				{
-					lowercaseName: this.lowercaseName
+					kebabCaseName: this.kebabCaseName
 				}
 			);
 			if (this.templateLanguage === 'Soy') {
 				this.fs.copyTpl(
-					this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capitalizeName + '.soy'),
+					this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capCaseName + '.soy'),
 					{
-						capitalizeName: this.capitalizeName,
-						lowercaseName: this.lowercaseName
+						capCaseName: this.capCaseName,
+						kebabCaseName: this.kebabCaseName
 					}
 				);
 			}
 		}
 		this.fs.copyTpl(
-			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.capitalizeName + '.js'),
+			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.capCaseName + '.js'),
 			{
-				capitalizeName: this.capitalizeName,
+				capCaseName: this.capCaseName,
 				templateLanguage: this.templateLanguage
 			}
 		);
 		this.fs.copyTpl(
-			this.templatePath('test/_Boilerplate.js'), this.destinationPath('test/' + this.capitalizeName + '.js'),
+			this.templatePath('test/_Boilerplate.js'), this.destinationPath('test/' + this.capCaseName + '.js'),
 			{
-				capitalizeName: this.capitalizeName
+				capCaseName: this.capCaseName
 			}
 		);
 		this.fs.copy(
@@ -162,7 +169,7 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				isNodeModule: this.isNodeModule,
-				lowercaseName: this.lowercaseName,
+				kebabCaseName: this.kebabCaseName,
 				repoName: this.repoName,
 				templateLanguage: this.templateLanguage
 			}
@@ -184,7 +191,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
 				buildFormat: this.buildFormat,
-				capitalizeName: this.capitalizeName,
+				capCaseName: this.capCaseName,
 				defaultKarmaConfig: this.defaultKarmaConfig,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,

@@ -2,7 +2,7 @@
 
 import core from 'metal';
 
-class <%= capitalizeName %> {
+class <%= capCaseName %> {
 }
 
-export default <%= capitalizeName %>;
+export default <%= capCaseName %>;

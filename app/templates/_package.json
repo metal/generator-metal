@@ -8,8 +8,8 @@
 		"node": ">=0.12.0",
 		"npm": ">=3.0.0"
 	},
-	"main": "lib/<%= capitalizeName %>.js",
-	"jsnext:main": "src/<%= capitalizeName %>.js",
+	"main": "lib/<%= capCaseName %>.js",
+	"jsnext:main": "src/<%= capCaseName %>.js",
 	"files": [
 		"lib",
 		"src",

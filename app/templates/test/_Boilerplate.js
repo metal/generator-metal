@@ -1,8 +1,8 @@
 'use strict';
 
-import <%= capitalizeName %> from '../src/<%= capitalizeName %>';
+import <%= capCaseName %> from '../src/<%= capCaseName %>';
 
-describe('<%= capitalizeName %>', function() {
+describe('<%= capCaseName %>', function() {
 	it('should be tested', function() {
 		assert.fail('No tests for this module yet.');
 	});
