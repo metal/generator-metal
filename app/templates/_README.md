@@ -20,3 +20,7 @@ can find it [here](https://nodejs.org).
   ```
 
 <% if (superClass === 'Component') { %>4. Open the demo at demos/index.html on your browser.<% } %>
+
+## Contribute
+
+We'd love to get contributions from you! Please, check our [Contributing Guidelines](CONTRIBUTING.md) to see how you can help us improve.
