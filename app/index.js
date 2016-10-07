@@ -208,6 +208,13 @@ module.exports = yeoman.generators.Base.extend({
 				superClass: this.superClass
 			}
 		);
+		this.fs.copyTpl(
+			this.templatePath('_CONTRIBUTING.md'), this.destinationPath('CONTRIBUTING.md'),
+			{
+				repoName: this.repoName,
+				repoOwner: this.repoOwner
+			}
+		);
 		this.fs.copy(
 			this.templatePath('_LICENSE.md'), this.destinationPath('LICENSE.md')
 		);
