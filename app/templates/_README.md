@@ -19,7 +19,13 @@ can find it [here](https://nodejs.org).
   npm run build
   ```
 
-<% if (superClass === 'Component') { %>4. Open the demo at demos/index.html on your browser.<% } %>
+<% if (superClass === 'Component') { %>4. Start the demo server:
+
+  ```
+  npm run start
+  ```
+
+5. Open the demo at http://localhost:4000/demos in your browser.<% } %>
 
 ## Contribute
 
