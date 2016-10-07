@@ -25,7 +25,7 @@ module.exports = yeoman.generators.Base.extend({
 					return 'You must provide a class name. Names should be '
 					'capitalized and separated by spaces.';
 				}
-				if (!/^[^_\-\s\d][^_\-\s]*$/.test(input)) {
+				if (!/^[^_\-\s\d](?:[^_\-\s]| )*$/.test(input)) {
 					return 'Invalid component name. Component names can\'t ' +
 					'contain any of the following characters: "-_". Also, ' +
 					'class names can\'t start with digits.';
