@@ -34,7 +34,7 @@
 		"metal-state": "^2.0.0"
 	},<% } else if (superClass === 'Component') { %>
 	"dependencies": {
-    "bootstrap": "^3.3.6"<% if (templateLanguage === 'Soy') { %>,
+		"bootstrap": "^3.3.6"<% if (templateLanguage === 'Soy') { %>,
 		"metal-soy": "^2.0.0"<% } else if (templateLanguage === 'JSX') { %>,
 		"metal-jsx": "^2.0.0"<% } else { %>,
 		"metal-component": "^2.0.0"<% } %>
