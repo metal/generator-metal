@@ -14,9 +14,9 @@
 	<h1><%= capitalizeName %></h1>
 	<script type="text/javascript">
 		requirejs.config({
-	    baseUrl: '../build/amd'
+			baseUrl: '../../build/amd'
 		});
-		requirejs(['<%= repoName %>/src/<%= capCaseName %>'], function(<%= capCaseName %>) {
+		requirejs(['../../build/amd/<%= repoName %>/src/<%= capCaseName %>'], function(<%= capCaseName %>) {
 			new <%= capCaseName %>.default();
 		});
 	</script>
