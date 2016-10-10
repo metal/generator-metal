@@ -19,16 +19,16 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'componentName',
 			message: 'How do you want to name your class?',
-			default: 'Select Input',
+			default: 'selectInput',
 			validate: function(input) {
 				if (!input) {
-					return 'You must provide a class name. Names should be '
-					'capitalized and separated by spaces.';
+					return 'You must provide a class name. Class names should be '
+					'camelcased.';
 				}
-				if (!/^[^_\-\s\d](?:[^_\-\s]| )*$/.test(input)) {
-					return 'Invalid component name. Component names can\'t ' +
-					'contain any of the following characters: "-_". Also, ' +
-					'class names can\'t start with digits.';
+				if (!/^[^_\-\s\d][^_\-\s]*$/.test(input)) {
+					return 'Invalid class name. Class names can\'t contain whitespace or ' +
+					'any of the following characters: "-_". Also, class names can\'t ' +
+					'start with digits.';
 				}
 
 				return true;
@@ -97,12 +97,14 @@ module.exports = yeoman.generators.Base.extend({
 		}];
 
 		this.prompt(prompts, function (props) {
-			var displayName = _.startCase(props.componentName.replace(/\s+/g, ' ').trim());
+			var componentName = props.componentName;
 
-			this.camelCaseName = _.camelCase(displayName);
-			this.capCaseName = displayName.replace(' ', '');
-			this.capitalizeName = displayName;
-			this.kebabCaseName = _.kebabCase(displayName);
+			var capitalizeName = _.startCase(componentName);
+
+			this.camelCaseName = _.camelCase(componentName);
+			this.capCaseName = capitalizeName.replace(' ', '');
+			this.capitalizeName = capitalizeName;
+			this.kebabCaseName = _.kebabCase(componentName);
 
 			this.defaultKarmaConfig = props.defaultKarmaConfig;
 			this.isNodeModule = props.isNodeModule;
