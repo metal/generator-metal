@@ -17,8 +17,8 @@
 		requirejs.config({
 			baseUrl: '../build/amd'
 		});
-		requirejs(['<%= repoName %>/src/<%= capCaseName %>'], function(<%= capCaseName %>) {
-			new <%= capCaseName %>.default();
+		requirejs(['<%= repoName %>/src/<%= componentName %>'], function(<%= componentName %>) {
+			new <%= componentName %>.default();
 		});
 	</script>
 </body>

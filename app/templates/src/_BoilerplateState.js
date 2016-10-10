@@ -2,10 +2,10 @@
 
 import State from 'metal-state';
 
-class <%= capCaseName %> extends State {
+class <%= componentName %> extends State {
 }
 
-<%= capCaseName %>.STATE = {
+<%= componentName %>.STATE = {
 };
 
-export default <%= capCaseName %>;
+export default <%= componentName %>;

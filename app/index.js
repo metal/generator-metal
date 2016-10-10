@@ -99,7 +99,7 @@ module.exports = yeoman.generators.Base.extend({
 			var componentName = props.componentName;
 
 			this.camelCaseName = _.camelCase(componentName);
-			this.capCaseName = componentName;
+			this.componentName = componentName;
 			this.capitalizeName = _.startCase(componentName);
 			this.kebabCaseName = _.kebabCase(componentName);
 
@@ -125,7 +125,7 @@ module.exports = yeoman.generators.Base.extend({
 				this.templatePath(demoTemplateName), this.destinationPath('demos/index.html'),
 				{
 					camelCaseName: this.camelCaseName,
-					capCaseName: this.capCaseName,
+					componentName: this.componentName,
 					capitalizeName: this.capitalizeName,
 					kebabCaseName: this.kebabCaseName,
 					repoName: this.repoName
@@ -139,26 +139,26 @@ module.exports = yeoman.generators.Base.extend({
 			);
 			if (this.templateLanguage === 'Soy') {
 				this.fs.copyTpl(
-					this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.capCaseName + '.soy'),
+					this.templatePath('src/_Boilerplate.soy'), this.destinationPath('src/' + this.componentName + '.soy'),
 					{
-						capCaseName: this.capCaseName,
+						componentName: this.componentName,
 						kebabCaseName: this.kebabCaseName
 					}
 				);
 			}
 		}
 		this.fs.copyTpl(
-			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.capCaseName + '.js'),
+			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.componentName + '.js'),
 			{
 				buildFormat: this.buildFormat,
-				capCaseName: this.capCaseName,
+				componentName: this.componentName,
 				templateLanguage: this.templateLanguage
 			}
 		);
 		this.fs.copyTpl(
-			this.templatePath('test/_Boilerplate.js'), this.destinationPath('test/' + this.capCaseName + '.js'),
+			this.templatePath('test/_Boilerplate.js'), this.destinationPath('test/' + this.componentName + '.js'),
 			{
-				capCaseName: this.capCaseName
+				componentName: this.componentName
 			}
 		);
 		this.fs.copy(
@@ -191,7 +191,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
 				buildFormat: this.buildFormat,
-				capCaseName: this.capCaseName,
+				componentName: this.componentName,
 				defaultKarmaConfig: this.defaultKarmaConfig,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,

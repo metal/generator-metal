@@ -2,7 +2,7 @@
 
 import core from 'metal';
 
-class <%= capCaseName %> {
+class <%= componentName %> {
 }
 
-export default <%= capCaseName %>;
+export default <%= componentName %>;

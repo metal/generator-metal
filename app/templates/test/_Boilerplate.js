@@ -1,8 +1,8 @@
 'use strict';
 
-import <%= capCaseName %> from '../src/<%= capCaseName %>';
+import <%= componentName %> from '../src/<%= componentName %>';
 
-describe('<%= capCaseName %>', function() {
+describe('<%= componentName %>', function() {
 	it('should be tested', function() {
 		assert.fail('No tests for this module yet.');
 	});
