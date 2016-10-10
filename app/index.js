@@ -151,6 +151,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('src/_Boilerplate' + this.superClass + '.js'), this.destinationPath('src/' + this.capCaseName + '.js'),
 			{
+				buildFormat: this.buildFormat,
 				capCaseName: this.capCaseName,
 				templateLanguage: this.templateLanguage
 			}
