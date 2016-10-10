@@ -19,11 +19,10 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'input',
 			name: 'componentName',
 			message: 'How do you want to name your class?',
-			default: 'selectInput',
+			default: 'SelectInput',
 			validate: function(input) {
 				if (!input) {
-					return 'You must provide a class name. Class names should be '
-					'camelcased.';
+					return 'You must provide a class name.';
 				}
 				if (!/^[^_\-\s\d][^_\-\s]*$/.test(input)) {
 					return 'Invalid class name. Class names can\'t contain whitespace or ' +
@@ -99,11 +98,9 @@ module.exports = yeoman.generators.Base.extend({
 		this.prompt(prompts, function (props) {
 			var componentName = props.componentName;
 
-			var capitalizeName = _.startCase(componentName);
-
 			this.camelCaseName = _.camelCase(componentName);
-			this.capCaseName = capitalizeName.replace(' ', '');
-			this.capitalizeName = capitalizeName;
+			this.capCaseName = componentName;
+			this.capitalizeName = _.startCase(componentName);
 			this.kebabCaseName = _.kebabCase(componentName);
 
 			this.defaultKarmaConfig = props.defaultKarmaConfig;
