@@ -19,10 +19,10 @@ describe('metal:app', function () {
 	it('creates files', function () {
 		assert.file([
 			'demos/index.html',
-			'src/Modal.js',
-			'src/modal.scss',
-			'src/Modal.soy',
-			'test/Modal.js',
+			'src/SelectInput.js',
+			'src/select-input.scss',
+			'src/SelectInput.soy',
+			'test/SelectInput.js',
 			'test/.jshintrc',
 			'gulpfile.js',
 			'karma.conf.js',
