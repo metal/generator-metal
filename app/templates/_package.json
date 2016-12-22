@@ -17,7 +17,8 @@
 	],
 	"scripts": {
 		"build": "gulp build",
-		"compile": "babel --presets metal -d lib/ src/",<% if (templateLanguage === 'Soy') { %>
+		"compile": "babel --presets metal -d lib/ src/",
+		"postinstall": "npm run build",<% if (templateLanguage === 'Soy') { %>
 		"prepublish": "gulp soy && npm run compile",<% } else { %>
 		"prepublish": "npm run compile",<% } %>
 		"start": "http-server . -p 4000",
