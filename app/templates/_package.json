@@ -16,12 +16,14 @@
 		"test"
 	],
 	"scripts": {
-		"build": "npm run soy && webpack",
+		<% if (templateLanguage === 'Soy') { %>
+		"build": "npm run soy && webpack",<% } else { %>
+		"build": "webpack",<% } %>
 		"compile": "babel --presets metal -d lib/ src/",
 		"postinstall": "npm run build",<% if (templateLanguage === 'Soy') { %>
 		"prepublish": "gulp soy && npm run compile",<% } else { %>
-		"prepublish": "npm run compile",<% } %>
-		"soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy",
+		"prepublish": "npm run compile",<% } %><% if (templateLanguage === 'Soy') { %>
+		"soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy",<% } %>
 		"start": "http-server . -p 4000",
 		"test": "gulp test",
 		"watch": "gulp build:watch"
