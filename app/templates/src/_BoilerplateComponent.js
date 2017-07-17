@@ -14,4 +14,5 @@ import Component from 'metal-component';<% } %>
 }<% } %><% if (templateLanguage === 'Soy') { %>
 Soy.register(<%= componentName %>, templates);<% } %>
 
+export { <%= componentName %> };
 export default <%= componentName %>;
