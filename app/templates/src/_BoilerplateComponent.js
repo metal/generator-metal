@@ -6,6 +6,8 @@ import Soy from 'metal-soy';<% } else if (templateLanguage === 'JSX') { %>
 import JSXComponent from 'metal-jsx';<% } else { %>
 import Component from 'metal-component';<% } %>
 
+import './<%= kebabCaseName %>.scss';
+
 <% if (templateLanguage === 'JSX') { %>class <%= componentName %> extends JSXComponent {
 	render() {
 		return <div>Hello World</div>;

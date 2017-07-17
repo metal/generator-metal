@@ -152,7 +152,8 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				componentName: this.componentName,
-				templateLanguage: this.templateLanguage
+				templateLanguage: this.templateLanguage,
+				kebabCaseName: this.kebabCaseName
 			}
 		);
 		this.fs.copyTpl(
