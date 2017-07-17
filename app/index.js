@@ -227,6 +227,13 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('jshintrc'), this.destinationPath('.jshintrc')
 		);
+		this.fs.copyTpl(
+			this.templatePath('_webpack.config.js'), this.destinationPath('webpack.config.js'),
+			{
+				componentName: this.componentName,
+				kebabCaseName: this.kebabCaseName
+			}
+		);
 	},
 
 	install: function () {
