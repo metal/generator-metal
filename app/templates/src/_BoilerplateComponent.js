@@ -10,7 +10,7 @@ import './<%= kebabCaseName %>.scss';
 
 <% if (templateLanguage === 'JSX') { %>class <%= componentName %> extends JSXComponent {
 	render() {
-		return <div>Hello World</div>;
+		return <div class="<%= kebabCaseName %>">Hello World</div>;
 	}
 }<% } else { %>class <%= componentName %> extends Component {
 }<% } %><% if (templateLanguage === 'Soy') { %>
