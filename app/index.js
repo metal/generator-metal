@@ -157,13 +157,13 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		);
 		this.fs.copyTpl(
-			this.templatePath('test/_Boilerplate.js'), this.destinationPath('test/' + this.componentName + '.js'),
+			this.templatePath('__tests__/_Boilerplate.js'), this.destinationPath('__tests__/' + this.componentName + '.js'),
 			{
 				componentName: this.componentName
 			}
 		);
 		this.fs.copy(
-			this.templatePath('test/jshintrc'), this.destinationPath('test/.jshintrc')
+			this.templatePath('__tests__/jshintrc'), this.destinationPath('__tests__/.jshintrc')
 		);
 		this.fs.copyTpl(
 			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
