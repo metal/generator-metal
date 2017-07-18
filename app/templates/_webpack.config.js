@@ -31,7 +31,7 @@ module.exports = {
 		filename: './build/<%= buildFormat %>/<%= repoName %>/src/<%= componentName %>.js'<% } else { %>
 		library: 'metal',
 		libraryTarget: 'this',
-		filename: './build/globals/<%= kebabCaseName %>.js'<% } %>
+		filename: './build/<%= buildFormat %>/<%= kebabCaseName %>.js'<% } %>
 	},
 	plugins: [
 		new webpack.optimize.ModuleConcatenationPlugin()
