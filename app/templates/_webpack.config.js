@@ -25,10 +25,13 @@ module.exports = {
 			}]
 		}]
 	},
-	output: {
+	output: {<% if (buildFormat === 'amd') { %>
+		library: '<%= repoName %>/src/<%= componentName %>',
+		libraryTarget: '<%= buildFormat %>',
+		filename: './build/<%= buildFormat %>/<%= repoName %>/src/<%= componentName %>.js'<% } else { %>
 		library: 'metal',
 		libraryTarget: 'this',
-		filename: './build/globals/<%= kebabCaseName %>.js',
+		filename: './build/globals/<%= kebabCaseName %>.js'<% } %>
 	},
 	plugins: [
 		new webpack.optimize.ModuleConcatenationPlugin()

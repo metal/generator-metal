@@ -232,7 +232,9 @@ module.exports = yeoman.generators.Base.extend({
 			this.templatePath('_webpack.config.js'), this.destinationPath('webpack.config.js'),
 			{
 				componentName: this.componentName,
-				kebabCaseName: this.kebabCaseName
+				kebabCaseName: this.kebabCaseName,
+				buildFormat: this.buildFormat,
+				repoName: this.repoName
 			}
 		);
 	},
