@@ -79,7 +79,8 @@
 		"webpack": "^3.0.0"
 	},
 	"jest": {
-		"resolver": "metal-lerna-jest-resolver",
+		"resolver": "metal-lerna-jest-resolver",<% if (buildFormat === 'jquery') { %>
+		"setupFiles": ["<rootDir>/test-env.js"],<% } %>
 		"snapshotSerializers": [
 			"metal-jest-serializer"
 		],

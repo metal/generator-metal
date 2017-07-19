@@ -178,6 +178,11 @@ module.exports = yeoman.generators.Base.extend({
 				this.templatePath('env/test/_node.js'), this.destinationPath('env/test/node.js')
 			);
 		}
+		if (this.buildFormat === 'jquery') {
+			this.fs.copy(
+				this.templatePath('_test-env.js'), this.destinationPath('test-env.js')
+			);
+		}
 		this.fs.copyTpl(
 			this.templatePath('_package.json'), this.destinationPath('package.json'),
 			{
