@@ -165,16 +165,6 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('__tests__/jshintrc'), this.destinationPath('__tests__/.jshintrc')
 		);
-		this.fs.copyTpl(
-			this.templatePath('_gulpfile.js'), this.destinationPath('gulpfile.js'),
-			{
-				buildFormat: this.buildFormat,
-				isNodeModule: this.isNodeModule,
-				kebabCaseName: this.kebabCaseName,
-				repoName: this.repoName,
-				templateLanguage: this.templateLanguage
-			}
-		);
 		if (!this.defaultKarmaConfig) {
 			this.fs.copy(
 				this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js')

@@ -21,13 +21,12 @@
 		"build": "webpack",<% } %>
 		"compile": "babel --presets metal -d lib/ src/",
 		"postinstall": "npm run build",<% if (templateLanguage === 'Soy') { %>
-		"prepublish": "gulp soy && npm run compile",<% } else { %>
+		"prepublish": "npm run soy && npm run compile",<% } else { %>
 		"prepublish": "npm run compile",<% } %><% if (templateLanguage === 'Soy') { %>
 		"soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy",<% } %>
 		"start": "http-server . -p 4000",<% if (templateLanguage === 'Soy') { %>
 		"test": "npm run soy && jest",<% } else { %>
-		"test": "jest",<% } %>
-		"watch": "gulp build:watch"
+		"test": "jest"<% } %>
 	},
 	"keywords": [
 		"metal"
@@ -57,11 +56,8 @@
 		"babel-preset-metal-jsx": "^0.0.2",<% } %><% if (!defaultKarmaConfig) { %>
 		"chai": "^2.3.0",<% } %><% if (superClass === 'Component') { %>
 		"css-loader": "^0.28.4"<% } %>,
-		"gulp": "^3.8.11",
-		"gulp-metal": "^1.0.0",
 		"http-server": "^0.9.0"<% if (superClass === 'Component') { %>,
-		"identity-obj-proxy": "^3.0.0"<% } %><% if (!defaultKarmaConfig) { %>,
-		"isparta": "^4.0.0",<% } %>
+		"identity-obj-proxy": "^3.0.0"<% } %>,
 		"jest": "^20.0.4",<% if (buildFormat === 'jquery') { %>
 		"jquery": "^2.2.0",<% } %>
 		"metal-lerna-jest-resolver": "^1.0.0",
