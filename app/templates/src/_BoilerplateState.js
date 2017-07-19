@@ -8,4 +8,5 @@ class <%= componentName %> extends State {
 <%= componentName %>.STATE = {
 };
 
+export { <%= componentName %> };
 export default <%= componentName %>;
