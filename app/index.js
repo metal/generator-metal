@@ -65,15 +65,17 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		},
 		{
+			type: 'list',
+			name: 'testEnviroment',
+			message: 'Which test enviroment do you want to use?',
+			choices: ['Jest', 'Karma'],
+			default: 'Jest'
+		},
+		{
 			type: 'confirm',
 			name: 'isNodeModule',
 			message: 'Is this component supposed to run on node environment? (that is, should other modules be able to "require" and use it?)',
 			default: false
-		},
-		{
-			type: 'confirm',
-			name: 'defaultKarmaConfig',
-			message: 'Do you want to use the default karma configuration? (if so, the karma.conf.js file won\'t be generated, since the gulp tasks will handle the config)'
 		},
 		{
 			type: 'input',
@@ -103,7 +105,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.capitalizeName = _.startCase(componentName);
 			this.kebabCaseName = _.kebabCase(componentName);
 
-			this.defaultKarmaConfig = props.defaultKarmaConfig;
+			this.testEnviroment = props.testEnviroment;
 			this.isNodeModule = props.isNodeModule;
 			this.repoName = 'metal-' + this.kebabCaseName;
 			this.repoOwner = props.repoOwner;
@@ -159,15 +161,20 @@ module.exports = yeoman.generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('__tests__/_Boilerplate.js'), this.destinationPath('__tests__/' + this.componentName + '.js'),
 			{
-				componentName: this.componentName
+				componentName: this.componentName,
+				testEnviroment: this.testEnviroment
 			}
 		);
 		this.fs.copy(
 			this.templatePath('__tests__/jshintrc'), this.destinationPath('__tests__/.jshintrc')
 		);
-		if (!this.defaultKarmaConfig) {
-			this.fs.copy(
-				this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js')
+		if (this.testEnviroment === 'Karma') {
+			this.fs.copyTpl(
+				this.templatePath('_karma.conf.js'), this.destinationPath('karma.conf.js'),
+				{
+					buildFormat: this.buildFormat,
+					templateLanguage: this.templateLanguage
+				}
 			);
 			this.fs.copy(
 				this.templatePath('_karma-coverage.conf.js'), this.destinationPath('karma-coverage.conf.js')
@@ -188,7 +195,7 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				buildFormat: this.buildFormat,
 				componentName: this.componentName,
-				defaultKarmaConfig: this.defaultKarmaConfig,
+				testEnviroment: this.testEnviroment,
 				repoName: this.repoName,
 				repoOwner: this.repoOwner,
 				repoDescription: this.repoDescription,

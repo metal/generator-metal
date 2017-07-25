@@ -1,32 +1,59 @@
 'use strict';
 
-var babelOptions = {
-	presets: ['metal'],
-	sourceMap: 'both'
-};
+const extractTextPlugin = require("extract-text-webpack-plugin");
+const karmaWebpack = require('karma-webpack');
+const sourceMapLoader = require("karma-sourcemap-loader");
+const metalKarmaConfig = require("metal-karma-config");
 
 module.exports = function (config) {
-	config.set({
-		frameworks: ['mocha', 'chai', 'source-map-support', 'commonjs'],
+	metalKarmaConfig(config);
+	config.plugins.push(karmaWebpack, sourceMapLoader);
+  config.set({
+    frameworks: ['mocha', 'chai', 'sinon'],
 
-		files: [
-			'node_modules/metal-soy-bundle/build/bundle.js',
-			'node_modules/html2incdom/src/*.js',
-			'node_modules/metal*/src/**/*.js',
-			'src/**/*.js',
-			'test/**/*.js'
+    files: [<% if (buildFormat === 'jquery') { %>
+			'node_modules/jquery/dist/jquery.min.js',<% } %>
+			'__tests__/**/*.js'
 		],
 
-		preprocessors: {
-			'src/**/*.js': ['babel', 'commonjs'],
-			'node_modules/html2incdom/src/*.js': ['babel', 'commonjs'],
-			'node_modules/metal-soy-bundle/build/bundle.js': ['commonjs'],
-			'node_modules/metal*/src/**/*.js': ['babel', 'commonjs'],
-			'test/**/*.js': ['babel', 'commonjs']
+		webpack: {
+			module: {
+				rules: [<% if (templateLanguage === 'JSX') { %>
+					{
+						test: /\.js$/,
+						exclude: /(node_modules)/,
+						use: {
+							loader: 'babel-loader',
+							options: {
+								compact: false,
+								presets: ['babel-preset-es2015']
+							}
+						}
+					},<% } %>
+					{
+						test: /\.scss$/,
+						use: extractTextPlugin.extract({
+							fallback: "style-loader",
+							use: "css-loader"
+						})
+					}
+				]
+			},
+			plugins: [
+				new extractTextPlugin("styles.css"),
+			]
 		},
 
-		browsers: ['Chrome'],
+		webpackMiddleware: {
+      noInfo: true
+    },
 
-		babelPreprocessor: {options: babelOptions}
-	});
+    preprocessors: {
+      '__tests__/**/*.js': ['webpack', 'sourcemap']
+		},
+
+		singleRun: true,
+
+    browsers: ['Chrome']
+  });
 };
