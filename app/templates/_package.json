@@ -51,7 +51,7 @@
 		"babel-loader": "^7.0.0",
 		"babel-plugin-transform-node-env-inline": "^0.1.1",
 		"babel-preset-metal": "^4.0.0"<% if (templateLanguage === 'JSX') { %>,
-		"babel-preset-metal-jsx": "^0.0.2",<% } %><% if (superClass === 'Component') { %>
+		"babel-preset-metal-jsx": "^0.0.2"<% } %><% if (superClass === 'Component') { %>,
 		"css-loader": "^0.28.4"<% } %>,<% if (testEnviroment === 'Karma') { %>
 		"extract-text-webpack-plugin": "^3.0.0",<% } %>
 		"http-server": "^0.9.0"<% if (superClass === 'Component') { %>,
