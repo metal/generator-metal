@@ -239,6 +239,12 @@ module.exports = yeoman.generators.Base.extend({
 				repoName: this.repoName
 			}
 		);
+		this.fs.copyTpl(
+			this.templatePath('.eslintrc'), this.destinationPath('.eslintrc'),
+			{
+				testEnviroment: this.componentName
+			}
+		);
 	},
 
 	install: function () {

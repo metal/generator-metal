@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true<% if (testEnviroment === 'Jest') { %>,
+    "jest": true<% } %>
+  },
+  "rules": {
+  	"camelcase":"off",
+  	"object-curly-spacing": "off"
+  }
+}
